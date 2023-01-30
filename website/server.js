@@ -91,5 +91,6 @@ app.post("/inscricao-individual", async (req, res) => {
     }
 });
 
-const port = process.env.PORT | 5000;
+const port = process.env.PORT || 5000;
+console.log(port)
 app.listen(port);
