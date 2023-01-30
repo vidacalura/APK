@@ -5,7 +5,8 @@ const membroUsername3 = document.getElementById("username-membro-3");
 const membroUsername4 = document.getElementById("username-membro-4");
 const envBtn = document.getElementById("env-btn");
 
-envBtn.addEventListener("click", async () => {
+envBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
 
     await fetch("/inscricao-time", {
         method: "POST",

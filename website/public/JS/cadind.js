@@ -1,7 +1,8 @@
 const username = document.getElementById("username");
 const envBtn = document.getElementById("env-btn");
 
-envBtn.addEventListener("click", async () => {
+envBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
 
     await fetch("/inscricao-individual", {
         method: "POST",
@@ -16,7 +17,7 @@ envBtn.addEventListener("click", async () => {
     .then((res) => {
         if (!res.error){
             alert(`${username.value.trim()} inscrito com sucesso!`);
-            window.location.href = "/";
+            window.location.href = "/torneio";
         }
         else {
             alert(res.error);

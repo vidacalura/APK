@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 
 const app = express();
@@ -31,8 +32,24 @@ app.post("/inscricao-time", async (req, res) => {
                     res.json({ "error": "Username deve conter menos que 24 caracteres." });
             }
             else {
-                // Verifica se user existe no krunker
-                // Passa para a API
+                await fetch(process.env.API + "times", {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "Application/JSON"
+                    },
+                    body: JSON.stringify({
+                        nomeTime: nomeTime.trim(),
+                        lider: lider.trim(),
+                        membro2: membro2.trim(),
+                        membro3: membro3.trim(),
+                        membro4: membro4.trim(),
+                        token: process.env.token
+                    })
+                })
+                .then((response) => { return response.json(); })
+                .then((response) => {
+                    res.json(response);
+                });
             }
         }
         else {
@@ -49,11 +66,23 @@ app.post("/inscricao-individual", async (req, res) => {
 
     if (username){
         if (username.length > 24){
-                res.json({ "error": "Username deve conter menos que 24 caracteres." });
+            res.json({ "error": "Username deve conter menos que 24 caracteres." });
         }
         else {
-            // Verifica se user existe no krunker
-            // Passa para a API
+            await fetch(process.env.API + "individual", {
+                method: "POST",
+                headers: {
+                    "Content-type": "Application/JSON"
+                },
+                body: JSON.stringify({
+                    username: username.trim(),
+                    token: process.env.token
+                })
+            })
+            .then((response) => { return response.json(); })
+            .then((response) => {
+                res.json(response);
+            });
         }
     }
     else {

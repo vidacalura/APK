@@ -62,7 +62,7 @@ router.post("/individual", async (req, res) => {
     if (token == process.env.token) {
         if (username) {
             db.promise()
-            .execute("INSERT INTO TimesAPK (username) VALUES(?);", [
+            .execute("INSERT INTO IndividualAPK (username) VALUES(?);", [
                 username
             ])
             .then(() => {
