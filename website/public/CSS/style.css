@@ -4,13 +4,23 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+:root {
+    --cinza-quase-preto: #1E1E1E;
+    --cinza-escuro: #212121;
+    --cinza-claro: #D4D4D4;
+    --amarelo: #FFDD00;
+    --branco: white;
+}
+
 body {
     overflow-x: hidden;
+    background-color: var(--cinza-escuro);
+    color: var(--branco);
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: var(--branco);
 }
 
 header {
@@ -18,25 +28,180 @@ header {
     display: flex;
     padding: 1rem 2rem;
 }
-header * {
-    width: 50%;
-}
 
 nav {
     padding-top: 1rem;
     display: flex;
     justify-content: center;
+    width: 100vw;
+    position: absolute;
+}
+nav a:hover {
+    border-bottom: 1px solid var(--branco);
 }
 nav ul {
     list-style: none;
     display: flex;
+    gap: 2rem;
 }
 
-section {
-    padding: 2rem;
-}
-h2 {
-    border-bottom: 1px solid black;
+.main-index h2 {
     margin-bottom: 1rem;
-    margin-right: 90%;
+}
+
+main{
+
+    margin: 0 auto;
+    padding: 0px 15vw;
+
+}
+section {
+
+    padding: 2rem 0px;
+
+}
+#hero-section {
+
+    padding: 10vh 10vw;
+    text-align: center;
+
+}
+#hero-section h2{
+    font-size: 48px;
+}
+#hero-section div {
+
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 0px;
+
+}
+#hero-section button {
+
+    font-size: 18px;
+    padding: 0.75rem 1.25rem;
+    font-weight: bold;
+    border-radius: 8px;
+    outline: none;
+    box-shadow: 3px 7px 7px rgb(0, 0, 0, 0.3);
+    cursor: pointer;
+
+}
+#participar-btn{
+
+    background-color: var(--amarelo);
+    border: none;
+
+}
+#saiba-mais-btn {
+
+    background-color: transparent;
+    border: 1px solid var(--branco);
+    color: var(--branco);
+
+}
+
+#torneios h2,
+#sobre-nos h2 {
+    font-size: 32px;
+}
+
+#torneio-h1 {
+
+    background-color: var(--cinza-quase-preto);
+    padding: 1rem 2rem;
+    margin-top: 6rem;
+    border-radius: 8px;
+    box-shadow: -10px 10px var(--amarelo);
+
+}
+.torneio-div {
+
+    background-color: var(--amarelo);
+    color: var(--cinza-quase-preto);
+    padding: 3rem 8vw;
+    border-radius: 12px;
+    margin: 3rem 0px;
+    box-shadow: 3px 7px 7px rgb(0, 0, 0, 0.3);
+
+}
+.torneio-div div,
+.observacoes {
+
+    background-color: var(--cinza-quase-preto);
+    color: var(--branco);
+    border-radius: 12px;
+    padding: 2rem 2rem;
+    width: fit-content;
+    margin: 1rem 0px 3rem 0px;
+    box-shadow: 2px 5px 5px rgb(0, 0, 0, 0.3);
+
+}
+.observacoes h3 {
+
+    padding: 0rem 0px 1rem 0px;
+    font-size: 24px;
+
+}
+
+#premio {
+
+    text-align: center;
+    margin: 1.5rem;
+
+}
+#premio h2 {
+
+    margin-bottom: 1rem;
+
+}
+
+form {
+
+    margin: 2rem 0px;
+    background-color: var(--cinza-quase-preto);
+    padding: 3rem 4rem;
+    border-radius: 12px;
+    box-shadow: 7px 7px 13px rgb(0, 0, 0, 0.3);
+
+}
+form h1 {
+
+    margin-bottom: 2rem;
+
+}
+form input {
+
+    background-color: var(--cinza-claro);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: black;
+    border: none;
+    outline: none;
+    margin: 1rem 2rem;
+
+}
+form button {
+
+    font-size: 18px;
+    padding: 0.75rem 1.25rem;
+    font-weight: bold;
+    border-radius: 8px;
+    outline: none;
+    box-shadow: 3px 7px 7px rgb(0, 0, 0, 0.3);
+    cursor: pointer;
+    background-color: var(--amarelo);
+    border: none;
+    margin: 2rem;
+
+}
+form p {
+    color: var(--cinza-claro);
+    font-size: 12px;
+    text-align: center;
+}
+form a {
+    text-decoration: underline;
+    color: white;
 }
