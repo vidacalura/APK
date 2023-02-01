@@ -31,10 +31,13 @@ header h1 {
     padding: 1rem 2rem;
 }
 footer {
+    width: calc(100vw - 4rem);
     justify-content: space-between;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
+    padding-right: 10rem;
     display: flex;
     background-color: #0D0D0D;
+    bottom: 0;
 }
 footer img {
     width: 40px;
@@ -240,5 +243,24 @@ form a {
     }
     #premio img {
         width: 25vw;
+    }
+
+
+    form {
+
+        width: 100vw;
+        margin: 6rem -15vw;
+        background-color: var(--cinza-quase-preto);
+        padding: 3rem 0px;
+        border-radius: 12px;
+        box-shadow: 7px 7px 13px rgb(0, 0, 0, 0.3);
+
+    }
+    form h1 {
+
+        padding-left: 1rem;
+        margin-bottom: 2rem;
+        font-size: 24px;
+
     }
 }
