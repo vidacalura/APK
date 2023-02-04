@@ -54,6 +54,16 @@ router.post("/times", async (req, res) => {
 
 router.get("/ranking/individual", async (req, res) => {
 
+    db.promise()
+    .execute("SELECT username, posicao FROM IndividualAPK ORDER BY posicao;")
+    .then(([rows]) => {
+        res.status(200).json({ "ranking": rows });
+    })
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json({ "error": "Erro ao conectar com o banco de dados." });
+    });
+    
 });
 
 router.post("/individual", async (req, res) => {
