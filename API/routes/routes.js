@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/ranking/times", async (req, res) => {
     
     db.promise()
-    .execute("SELECT nome_time, lider, membro2, membro3, membro4 FROM TimesAPK ORDER BY posicao;")
+    .execute("SELECT nome_time, lider, membro2, membro3, membro4 FROM TimesAPK;")
     .then(([rows]) => {
         res.status(200).json({
             times: rows
