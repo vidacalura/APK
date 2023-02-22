@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/ranking/times", async (req, res) => {
     
     db.promise()
-    .execute("SELECT nome_time, posicao FROM TimesAPK ORDER BY posicao;")
+    .execute("SELECT nome_time, lider, membro2, membro3, membro4 FROM TimesAPK ORDER BY posicao;")
     .then(([rows]) => {
         res.status(200).json({
             times: rows
@@ -26,7 +26,7 @@ router.post("/times", async (req, res) => {
     if (token == process.env.token) {
         if (nomeTime && lider && membro2 && membro3 && membro4) {
             db.promise()
-            .execute("INSERT INTO TimesAPK (nome_time, lider, membro2, membro3, membro4) \
+            .execute("INSERT INTO TimesAPK_temp (nome_time, lider, membro2, membro3, membro4) \
             VALUES(?, ?, ?, ?, ?);", [
                 nomeTime,
                 lider,
@@ -35,7 +35,7 @@ router.post("/times", async (req, res) => {
                 membro4
             ])
             .then(() => {
-                res.status(200).json({ "message": "Time cadastrado com sucesso" });
+                res.status(200).json({ "message": "A APK recebeu seu pedido de cadastro de times com sucesso" });
             })
             .catch((err) => {
                 console.log(err);
@@ -52,10 +52,10 @@ router.post("/times", async (req, res) => {
 
 });
 
-router.get("/ranking/individual", async (req, res) => {
+router.get("/ranking/individual/fev2023", async (req, res) => {
 
     db.promise()
-    .execute("SELECT username, posicao FROM IndividualAPK ORDER BY posicao;")
+    .execute("SELECT username, posicao FROM IndividualAPK_02_2023 ORDER BY posicao;")
     .then(([rows]) => {
         res.status(200).json({ "ranking": rows });
     })
@@ -72,7 +72,7 @@ router.post("/individual", async (req, res) => {
     if (token == process.env.token) {
         if (username) {
             db.promise()
-            .execute("INSERT INTO IndividualAPK (username) VALUES(?);", [
+            .execute("INSERT INTO IndividualAPK_temp (username) VALUES(?);", [
                 username
             ])
             .then(() => {
@@ -90,14 +90,6 @@ router.post("/individual", async (req, res) => {
     else {
         res.status(401).json({ "error": "Permissão negada" });
     }
-
-});
-
-router.get("/jogos", async (req, res) => {
-    // /jogos?jogador1=&jogador2=
-});
-
-router.post("/jogos", async (req, res) => {
 
 });
 
